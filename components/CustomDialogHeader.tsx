@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import { LucideIcon } from "lucide-react";
 import React from "react";
 import { DialogHeader, DialogTitle } from "./ui/dialog";
