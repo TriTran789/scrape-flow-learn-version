@@ -17,56 +17,56 @@ const page = () => {
       </div>
 
       <div className="h-full py-6">
-        <Suspense fallback={<UserWorkflowsSkeleton />}>
+        {/* <Suspense fallback={<UserWorkflowsSkeleton />}>
           <UserWorkflows />
-        </Suspense>
+        </Suspense> */}
       </div>
     </div>
   );
 };
 
-const UserWorkflowsSkeleton = () => {
-  return (
-    <div className="space-y-2">
-      {[1, 2, 3, 4].map((i) => (
-        <Skeleton key={i} className="h-32 w-full" />
-      ))}
-    </div>
-  );
-};
+// const UserWorkflowsSkeleton = () => {
+//   return (
+//     <div className="space-y-2">
+//       {[1, 2, 3, 4].map((i) => (
+//         <Skeleton key={i} className="h-32 w-full" />
+//       ))}
+//     </div>
+//   );
+// };
 
-const UserWorkflows = async () => {
-  const workflows = await GetWorkflowsForUser();
-  if (!workflows) {
-    return (
-      <Alert variant={"destructive"}>
-        <AlertCircle className="size-4" />
-        <AlertTitle>Error</AlertTitle>
-        <AlertDescription>
-          Something went wrong. Please try again later
-        </AlertDescription>
-      </Alert>
-    );
-  }
+// const UserWorkflows = async () => {
+//   const workflows = await GetWorkflowsForUser();
+//   if (!workflows) {
+//     return (
+//       <Alert variant={"destructive"}>
+//         <AlertCircle className="size-4" />
+//         <AlertTitle>Error</AlertTitle>
+//         <AlertDescription>
+//           Something went wrong. Please try again later
+//         </AlertDescription>
+//       </Alert>
+//     );
+//   }
 
-  if (workflows.length === 0) {
-    return (
-      <div className="flex flex-col gap-4 h-full items-center justify-center">
-        <div className="rounded-full bg-accent size-20 flex items-center justify-center">
-          <InboxIcon size={40} className="stroke-primary" />
-        </div>
-        <div className="flex flex-col gap-1 text-center">
-          <p className="font-bold">No workflow created yet</p>
-          <p className="text-sm text-muted-foreground">
-            Click the button below to create your first workflow
-          </p>
-        </div>
-        <CreateWorkflowDialog triggerText="Create your first workflow" />
-      </div>
-    );
-  }
+//   if (workflows.length === 0) {
+//     return (
+//       <div className="flex flex-col gap-4 h-full items-center justify-center">
+//         <div className="rounded-full bg-accent size-20 flex items-center justify-center">
+//           <InboxIcon size={40} className="stroke-primary" />
+//         </div>
+//         <div className="flex flex-col gap-1 text-center">
+//           <p className="font-bold">No workflow created yet</p>
+//           <p className="text-sm text-muted-foreground">
+//             Click the button below to create your first workflow
+//           </p>
+//         </div>
+//         <CreateWorkflowDialog triggerText="Create your first workflow" />
+//       </div>
+//     );
+//   }
 
-  return <div></div>;
-};
+//   return <div></div>;
+// };
 
 export default page;
