@@ -1,6 +1,8 @@
 "use client";
+import CustomDialogHeader from "@/components/CustomDialogHeader";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Layers2Icon } from "lucide-react";
 import React from "react";
 
 const CreateWorkflowDialog = ({ triggerText }: { triggerText?: string }) => {
@@ -11,6 +13,13 @@ const CreateWorkflowDialog = ({ triggerText }: { triggerText?: string }) => {
       <DialogTrigger asChild>
         <Button>{triggerText ?? "Create workflow"}</Button>
       </DialogTrigger>
+      <DialogContent className="px-0">
+        <CustomDialogHeader
+          icon={Layers2Icon}
+          title="Create workflow"
+          subTitle="Start building your workflow"
+        />
+      </DialogContent>
     </Dialog>
   );
 };
